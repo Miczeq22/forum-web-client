@@ -9,7 +9,12 @@ export const SideBar = () => {
   }
 
   return (
-    <div className="sidebar">
+    <div
+      style={{
+        gridArea: "sidebar",
+        backgroundColor: "yellow",
+      }}
+    >
       <SidebarMenus />
     </div>
   );

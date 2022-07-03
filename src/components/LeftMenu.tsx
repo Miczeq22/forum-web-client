@@ -23,5 +23,14 @@ export const LeftMenu = () => {
     return null;
   }
 
-  return <div className="leftmenu">{categories}</div>;
+  return (
+    <div
+      style={{
+        gridArea: "left-menu",
+        backgroundColor: "blue",
+      }}
+    >
+      {categories}
+    </div>
+  );
 };

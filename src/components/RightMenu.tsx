@@ -7,5 +7,13 @@ export const RightMenu = () => {
     return null;
   }
 
-  return <div className="rightmenu">Right Menu</div>;
+  return (
+    <div
+      style={{
+        gridArea: "right-menu",
+      }}
+    >
+      Right Menu
+    </div>
+  );
 };

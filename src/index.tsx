@@ -8,6 +8,8 @@ import configureStore from "./store/configureStore";
 import { BrowserRouter } from "react-router-dom";
 import ErrorBoundary from "./components/ErrorBoundary";
 import ReactModal from "react-modal";
+import { MantineProvider } from "@mantine/core";
+import { lightTheme } from "./theme/light.theme";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -16,7 +18,9 @@ root.render(
   <React.StrictMode>
     <Provider store={configureStore()}>
       <BrowserRouter>
-        <ErrorBoundary>{[<App key="App" />]}</ErrorBoundary>
+        <MantineProvider theme={lightTheme} withGlobalStyles withNormalizeCSS>
+          <ErrorBoundary>{[<App key="App" />]}</ErrorBoundary>
+        </MantineProvider>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
