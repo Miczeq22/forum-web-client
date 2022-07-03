@@ -1,19 +1,17 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { LeftMenu } from "./components/LeftMenu";
-import { Main } from "./components/Main";
-import { Nav } from "./components/Nav";
-import { RightMenu } from "./components/RightMenu";
-import { SideBar } from "./components/sidebar/SideBar";
+import { Registration } from "./components/auth/Registration";
+import { Home } from "./components/home/Home";
 
 function App() {
   return (
-    <div className="App">
-      <Nav />
-      <SideBar />
-      <LeftMenu />
-      <Main />
-      <RightMenu />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route
+        path="/register"
+        element={<Registration isOpen onClickToggle={() => {}} />}
+      />
+    </Routes>
   );
 }
 
