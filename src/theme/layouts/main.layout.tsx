@@ -12,10 +12,12 @@ interface Props {
 
 const mobileStyles = {
   gridTemplateColumns: "1fr",
+  gridTemplateRows: "",
   gridTemplateAreas: `
     "nav"
     "content"
   `,
+  gap: "0",
 };
 
 const useStyles = createStyles({
@@ -24,7 +26,7 @@ const useStyles = createStyles({
     margin: "0 auto",
     display: "grid",
     gridTemplateColumns: "0.7fr 0.9fr 1.5fr 0.9fr",
-    gridTemplateRows: "2.75rem 3fr",
+    gridTemplateRows: "1fr 15fr",
     gridTemplateAreas: `"nav nav nav nav" "sidebar left-menu content right-menu"`,
     gap: "0.75rem 0.4rem",
   },
