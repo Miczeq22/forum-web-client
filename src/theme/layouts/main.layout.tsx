@@ -12,12 +12,12 @@ interface Props {
 
 const mobileStyles = {
   gridTemplateColumns: "1fr",
-  gridTemplateRows: "",
   gridTemplateAreas: `
     "nav"
     "content"
   `,
   gap: "0",
+  gridTemplateRows: "1fr",
 };
 
 const useStyles = createStyles({
@@ -41,7 +41,7 @@ export const MainLayout = ({ children }: Props) => {
         <Navbar />
         <SideBar />
         <LeftMenu />
-        <Main />
+        <Main>{children}</Main>
         <RightMenu />
       </div>
     </MediaQuery>
