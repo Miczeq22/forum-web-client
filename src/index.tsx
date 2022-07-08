@@ -3,26 +3,21 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { Provider } from "react-redux";
-import configureStore from "./store/configureStore";
 import { BrowserRouter } from "react-router-dom";
 import ErrorBoundary from "./components/ErrorBoundary";
 import ReactModal from "react-modal";
-import { MantineProvider } from "@mantine/core";
-import { lightTheme } from "./theme/light.theme";
+import { AppProvider } from "./providers/app/app.provider";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Provider store={configureStore()}>
-      <BrowserRouter>
-        <MantineProvider theme={lightTheme} withGlobalStyles withNormalizeCSS>
-          <ErrorBoundary>{[<App key="App" />]}</ErrorBoundary>
-        </MantineProvider>
-      </BrowserRouter>
-    </Provider>
+    <BrowserRouter>
+      <AppProvider>
+        <ErrorBoundary>{[<App key="App" />]}</ErrorBoundary>
+      </AppProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

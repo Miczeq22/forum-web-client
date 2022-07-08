@@ -21,35 +21,39 @@ export const TextPost = () => {
             </Text>
           </Anchor>
         </nav>
-        <Title order={3} className={classes.title}>
-          What is DDD?
-        </Title>
+        <Anchor component={Link} to="/post" underline={false}>
+          <Title order={3} className={classes.title}>
+            What is DDD?
+          </Title>
+        </Anchor>
       </header>
-      <main className={classes.content}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
-        distinctio facilis eveniet dolorem. Voluptatem quae autem, nobis
-        quibusdam ducimus earum molestiae commodi nemo maxime dolorem quos quasi
-        adipisci dolore veniam molestias ipsam alias, sint impedit mollitia
-        beatae? Unde quam consectetur, amet eos labore recusandae repudiandae
-        porro facere nemo autem nam.
-      </main>
-      <footer className={classes.footer}>
-        <div className={classes.leftButtons}>
-          <Button variant="subtle" size="xs">
-            <FaArrowUp />
-          </Button>
-          <span className={classes.likes}>239</span>
-          <Button variant="subtle" size="xs">
-            <FaArrowDown />
-          </Button>
-        </div>
-        <div>
-          <Button variant="subtle" size="xs">
-            <FaComment />
-            <span className={classes.comments}>9 comments</span>
-          </Button>
-        </div>
-      </footer>
+      <Anchor component={Link} to="/post" underline={false}>
+        <main className={classes.content}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
+          distinctio facilis eveniet dolorem. Voluptatem quae autem, nobis
+          quibusdam ducimus earum molestiae commodi nemo maxime dolorem quos
+          quasi adipisci dolore veniam molestias ipsam alias, sint impedit
+          mollitia beatae? Unde quam consectetur, amet eos labore recusandae
+          repudiandae porro facere nemo autem nam.
+        </main>
+        <footer className={classes.footer}>
+          <div className={classes.leftButtons}>
+            <Button variant="subtle" size="xs">
+              <FaArrowUp />
+            </Button>
+            <span className={classes.likes}>239</span>
+            <Button variant="subtle" size="xs">
+              <FaArrowDown />
+            </Button>
+          </div>
+          <div>
+            <Button variant="subtle" size="xs">
+              <FaComment />
+              <span className={classes.comments}>9 comments</span>
+            </Button>
+          </div>
+        </footer>
+      </Anchor>
     </article>
   );
 };

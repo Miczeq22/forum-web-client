@@ -5,27 +5,11 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import React from "react";
 import { Link } from "react-router-dom";
-import { AppState } from "../../store/AppState";
-import { UserProfileSetType } from "../../store/user/Reducer";
 
 export const SidebarMenus = () => {
-  const user = useSelector((state: AppState) => state.user);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch({
-      type: UserProfileSetType,
-      payload: {
-        id: 1,
-        userName: "testUser",
-      },
-    });
-  }, [dispatch]);
+  const user = "user";
 
   return (
     <React.Fragment>
@@ -33,7 +17,7 @@ export const SidebarMenus = () => {
         <li>
           <FontAwesomeIcon icon={faUser} />
           <span className="menu-name">
-            <Link to={`userprofile/${user?.id}`}>{user?.userName}</Link>
+            <Link to={`userprofile/${user}`}>{user}</Link>
           </span>
         </li>
         <li>
