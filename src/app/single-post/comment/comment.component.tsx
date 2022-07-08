@@ -1,5 +1,6 @@
 import { Anchor, Avatar, Button, Text } from "@mantine/core";
 import { FiArrowDown, FiArrowUp, FiMessageCircle } from "react-icons/fi";
+import { Link } from "react-router-dom";
 import { useStyles } from "./comment.styles";
 
 export const Comment = () => {
@@ -9,13 +10,13 @@ export const Comment = () => {
     <article className={classes.comment}>
       <header>
         <nav className={classes.nav}>
-          <Anchor href="#user">
+          <Anchor to="#user" component={Link}>
             <Avatar radius="xl" color="orange" />
           </Anchor>
-          <Anchor href="#user">
+          <Anchor to="#user" component={Link}>
             <span className={classes.author}>marco</span>
           </Anchor>
-          <Anchor href="#comment">
+          <Anchor to="#comment" component={Link}>
             <Text color="dimmed" className={classes.time}>
               2hr ago
             </Text>

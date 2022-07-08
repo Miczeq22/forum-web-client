@@ -1,10 +1,11 @@
 import { Anchor, Title, useMantineTheme } from "@mantine/core";
+import { Link } from "react-router-dom";
 
 export const Logo = () => {
   const theme = useMantineTheme();
 
   return (
-    <Anchor underline={false} href="/#">
+    <Anchor underline={false} to="/#" component={Link}>
       <Title
         order={3}
         sx={{
