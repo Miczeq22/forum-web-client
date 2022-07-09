@@ -10,7 +10,7 @@ export const useStyles = createStyles((theme) => ({
       marginTop: 0,
     },
 
-    "& > li:nth-child(2n)": {
+    "& > li:nth-of-type(2n)": {
       backgroundColor: theme.colors.gray[0],
     },
   },
