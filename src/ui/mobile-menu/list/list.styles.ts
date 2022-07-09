@@ -8,7 +8,6 @@ export const useStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    marginTop: theme.spacing.md,
 
     "& > li:first-of-type": {
       marginTop: 0,
