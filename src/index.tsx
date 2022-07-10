@@ -4,9 +4,9 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import ErrorBoundary from "./components/ErrorBoundary";
 import ReactModal from "react-modal";
 import { AppProvider } from "./providers/app/app.provider";
+import ErrorBoundary from "./ui/error-boundary/error-boundary.component";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

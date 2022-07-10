@@ -35,6 +35,7 @@ export const useStyles = createStyles((theme) => ({
     marginTop: theme.spacing.md,
   },
   replies: {
+    listStyle: "none",
     margin: 0,
     padding: 0,
     paddingLeft: theme.spacing.lg,
