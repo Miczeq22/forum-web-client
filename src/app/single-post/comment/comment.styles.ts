@@ -21,7 +21,9 @@ export const useStyles = createStyles((theme) => ({
     margin: `${theme.spacing.md}px 0`,
     fontWeight: 500,
   },
-  footer: {},
+  footer: {
+    marginBottom: theme.spacing.md,
+  },
   reply: {
     marginLeft: theme.spacing.xs,
   },

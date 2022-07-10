@@ -1,10 +1,18 @@
 import { Anchor, Avatar, Button, Text } from "@mantine/core";
+import { useState } from "react";
 import { FiArrowDown, FiArrowUp, FiMessageCircle } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { AddReply } from "../add-reply/add-reply.component";
 import { useStyles } from "./comment.styles";
 
 export const Comment = () => {
+  const [isReplyInputOpen, setIsReplyInputOpen] = useState(false);
+
   const { classes } = useStyles();
+
+  const handleReplyClick = () => {
+    setIsReplyInputOpen(!isReplyInputOpen);
+  };
 
   return (
     <article className={classes.comment}>
@@ -36,10 +44,15 @@ export const Comment = () => {
         <Button variant="subtle">
           <FiArrowDown />
         </Button>
-        <Button variant="subtle" className={classes.replyBtn}>
+        <Button
+          variant="subtle"
+          className={classes.replyBtn}
+          onClick={handleReplyClick}
+        >
           <FiMessageCircle /> <span className={classes.reply}>Reply</span>
         </Button>
       </footer>
+      {isReplyInputOpen && <AddReply />}
     </article>
   );
 };
