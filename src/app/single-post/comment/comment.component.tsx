@@ -1,16 +1,24 @@
 import { Anchor, Avatar, Button, Text } from "@mantine/core";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FiArrowDown, FiArrowUp, FiMessageCircle } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { AddReply } from "../add-reply/add-reply.component";
+import { Reply } from "../reply/reply.component";
 import { useStyles } from "./comment.styles";
 
 export const Comment = () => {
+  const replyRef = useRef<HTMLDivElement | null>(null);
   const [isReplyInputOpen, setIsReplyInputOpen] = useState(false);
 
   const { classes } = useStyles();
 
   const handleReplyClick = () => {
+    if (!isReplyInputOpen) {
+      replyRef?.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
     setIsReplyInputOpen(!isReplyInputOpen);
   };
 
@@ -51,8 +59,17 @@ export const Comment = () => {
         >
           <FiMessageCircle /> <span className={classes.reply}>Reply</span>
         </Button>
+        <div className={classes.addReply}>
+          <ul className={classes.replies}>
+            {new Array(3).fill(0).map((_, index) => (
+              <li key={`reply-${index}`}>
+                <Reply />
+              </li>
+            ))}
+          </ul>
+          <div ref={replyRef}>{isReplyInputOpen && <AddReply />}</div>
+        </div>
       </footer>
-      {isReplyInputOpen && <AddReply />}
     </article>
   );
 };

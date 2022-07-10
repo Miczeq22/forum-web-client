@@ -6,7 +6,7 @@ export const CommentList = () => {
 
   return (
     <ul className={classes.list}>
-      {new Array(10).fill(0).map((_, index) => (
+      {new Array(5).fill(0).map((_, index) => (
         <li key={`comment-${index}`} className={classes.item}>
           <Comment />
         </li>

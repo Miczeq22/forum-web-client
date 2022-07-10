@@ -21,9 +21,7 @@ export const useStyles = createStyles((theme) => ({
     margin: `${theme.spacing.md}px 0`,
     fontWeight: 500,
   },
-  footer: {
-    marginBottom: theme.spacing.md,
-  },
+  footer: {},
   reply: {
     marginLeft: theme.spacing.xs,
   },
@@ -32,5 +30,24 @@ export const useStyles = createStyles((theme) => ({
   },
   likes: {
     margin: `0 ${theme.spacing.md}px`,
+  },
+  addReply: {
+    marginTop: theme.spacing.md,
+  },
+  replies: {
+    margin: 0,
+    padding: 0,
+    paddingLeft: theme.spacing.lg,
+    position: "relative",
+
+    "&::before": {
+      content: "''",
+      position: "absolute",
+      top: 10,
+      left: 10,
+      height: "90%",
+      width: 1,
+      backgroundColor: theme.colors.gray[3],
+    },
   },
 }));
