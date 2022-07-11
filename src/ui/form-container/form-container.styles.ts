@@ -7,7 +7,7 @@ export const useStyles = createStyles((theme) => ({
 
     ".mantine-InputWrapper-label": {
       fontWeight: 600,
-      fontSize: theme.fontSizes.lg,
+      fontSize: theme.fontSizes.md,
     },
 
     ".mantine-InputWrapper-root": {
@@ -15,6 +15,10 @@ export const useStyles = createStyles((theme) => ({
     },
   },
   titleWrapper: {
-    marginBottom: theme.spacing.lg,
+    marginBottom: theme.spacing.md,
+  },
+  description: {
+    fontWeight: 500,
+    fontSize: theme.fontSizes.md,
   },
 }));
