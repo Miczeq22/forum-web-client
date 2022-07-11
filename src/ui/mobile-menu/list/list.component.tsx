@@ -9,6 +9,10 @@ export const List = () => {
 
   const menu = [
     {
+      name: "Home",
+      href: "/",
+    },
+    {
       name: "Profile",
       href: "/profile",
     },
