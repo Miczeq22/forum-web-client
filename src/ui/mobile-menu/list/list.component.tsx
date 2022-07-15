@@ -31,7 +31,7 @@ export const List = () => {
         },
         {
           name: "Logout",
-          href: "#",
+          href: "/logout",
         },
       ]);
     } else {

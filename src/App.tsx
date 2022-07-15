@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import { Route, Routes } from "react-router-dom";
 import { HomePage } from "./app/home/home.page";
 import { LoginPage } from "./app/login/login.page";
+import { LogoutPage } from "./app/logout/logout.page";
 import { ProfilePage } from "./app/profile/profile.page";
 import { RegisterPage } from "./app/register/register.page";
 import { SinglePostPage } from "./app/single-post/single-post.page";
@@ -56,6 +57,14 @@ function App() {
             <GuestOnly>
               <RegisterPage />
             </GuestOnly>
+          }
+        />
+        <Route
+          path="/logout"
+          element={
+            <RequireAuth>
+              <LogoutPage />
+            </RequireAuth>
           }
         />
       </Routes>
