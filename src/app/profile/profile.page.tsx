@@ -17,13 +17,13 @@ export const ProfilePage = () => {
           label="Display name"
           description="If you provide display name other users will see you this way"
         >
-          <Input />
+          <Input size="md" />
         </InputWrapper>
         <InputWrapper
           label="About"
           description="Here you can describe your Bio"
         >
-          <Textarea minRows={4} />
+          <Textarea minRows={4} size="md" />
         </InputWrapper>
       </FormContainer>
       <FormContainer
@@ -34,13 +34,13 @@ export const ProfilePage = () => {
           label="Change password"
           description="Provide new password"
         >
-          <Input />
+          <Input size="md" />
         </InputWrapper>
         <InputWrapper
           label="E-mail notifications"
           description="Here you can enable/disable e-mail notifications"
         >
-          <Checkbox label="Enable e-mail notifications" />
+          <Checkbox label="Enable e-mail notifications" size="md" />
         </InputWrapper>
         <Button>Save</Button>
       </FormContainer>
