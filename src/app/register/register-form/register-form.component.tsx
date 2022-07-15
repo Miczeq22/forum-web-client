@@ -1,7 +1,15 @@
 import { Button, Checkbox, Input, InputWrapper } from "@mantine/core";
+import { useUser } from "../../../hooks/use-user/use-user.hook";
+import { login } from "../../../providers/user/user.actions";
 import { FormContainer } from "../../../ui/form-container/form-container.component";
 
 export const RegisterForm = () => {
+  const { dispatch } = useUser();
+
+  const handleButtonClick = () => {
+    dispatch(login());
+  };
+
   return (
     <FormContainer
       title="Sign Up"
@@ -45,21 +53,15 @@ export const RegisterForm = () => {
         description="To make sure you provided correct password, please write it once again"
         required
       >
-        <Input
-          type="email"
-          placeholder="Repeat your password"
-          size="md"
-        />
-      </InputWrapper>
-      <InputWrapper
-      >
-        <Checkbox
-          label="Accept Terms & Agreements"
-          size="md"
-        />
+        <Input type="email" placeholder="Repeat your password" size="md" />
       </InputWrapper>
       <InputWrapper>
-      <Button fullWidth size="md">Sign Up</Button>
+        <Checkbox label="Accept Terms & Agreements" size="md" />
+      </InputWrapper>
+      <InputWrapper>
+        <Button fullWidth size="md" onClick={handleButtonClick}>
+          Sign Up
+        </Button>
       </InputWrapper>
     </FormContainer>
   );

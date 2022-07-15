@@ -7,6 +7,8 @@ import { LoginPage } from "./app/login/login.page";
 import { ProfilePage } from "./app/profile/profile.page";
 import { RegisterPage } from "./app/register/register.page";
 import { SinglePostPage } from "./app/single-post/single-post.page";
+import { GuestOnly } from "./routes/guest-only";
+import { RequireAuth } from "./routes/require-auth";
 import { MobileMenu } from "./ui/mobile-menu/mobile-menu.component";
 
 function App() {
@@ -16,11 +18,46 @@ function App() {
   return (
     <Fragment>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/post" element={<SinglePostPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route
+          path="/"
+          element={
+            <RequireAuth>
+              <HomePage />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/post"
+          element={
+            <RequireAuth>
+              <SinglePostPage />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <RequireAuth>
+              <ProfilePage />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <GuestOnly>
+              <LoginPage />
+            </GuestOnly>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <GuestOnly>
+              <RegisterPage />
+            </GuestOnly>
+          }
+        />
       </Routes>
       {width <= theme.breakpoints.sm && <MobileMenu />}
     </Fragment>

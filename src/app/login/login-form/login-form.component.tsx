@@ -5,9 +5,17 @@ import {
   InputWrapper,
   PasswordInput,
 } from "@mantine/core";
+import { useUser } from "../../../hooks/use-user/use-user.hook";
+import { login } from "../../../providers/user/user.actions";
 import { FormContainer } from "../../../ui/form-container/form-container.component";
 
 export const LoginForm = () => {
+  const { dispatch } = useUser();
+
+  const handleButtonClick = () => {
+    dispatch(login());
+  };
+
   return (
     <FormContainer
       title="Sign In"
@@ -31,7 +39,7 @@ export const LoginForm = () => {
         <Checkbox label="Remember me?" size="md" />
       </InputWrapper>
       <InputWrapper>
-        <Button size="md" fullWidth>
+        <Button size="md" fullWidth onClick={handleButtonClick}>
           Sign In
         </Button>
       </InputWrapper>

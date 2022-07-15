@@ -1,7 +1,7 @@
 import { AppAction } from "../../types/app-action";
 import { MobileMenuState } from "./mobile-menu.provider";
 
-export const TOGGLE_MENU = "mobile-menu./toggle-menu";
+export const TOGGLE_MENU = "mobile-menu/toggle-menu";
 
 export type MobileMenuAction = AppAction<typeof TOGGLE_MENU>;
 
