@@ -2,9 +2,6 @@ import { createStyles } from "@mantine/core";
 
 export const useStyles = createStyles((theme) => ({
   avatarContainer: {
-    // display: "flex",
-    // justifyContent: "center",
-    // alignItems: "center",
     position: "relative",
     paddingTop: theme.spacing.md,
   },

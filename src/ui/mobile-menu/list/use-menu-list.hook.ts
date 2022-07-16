@@ -5,7 +5,8 @@ import { toggleMenu } from "../../../providers/mobile-menu/mobile-menu.actions";
 
 interface MenuItemPayload {
   name: string;
-  href: string;
+  href?: string;
+  items?: MenuItemPayload[];
 }
 
 export const useMenuList = () => {
@@ -25,8 +26,17 @@ export const useMenuList = () => {
           href: "/",
         },
         {
-          name: "Profile",
-          href: "/profile",
+          name: "Settings",
+          items: [
+            {
+              name: "Profile",
+              href: "/profile",
+            },
+            {
+              name: "Account",
+              href: "/account",
+            },
+          ],
         },
         {
           name: "Logout",

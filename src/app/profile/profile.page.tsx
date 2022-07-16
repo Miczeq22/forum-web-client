@@ -1,4 +1,4 @@
-import { Button, Checkbox, Input, InputWrapper, Textarea } from "@mantine/core";
+import { Button, Input, InputWrapper, Textarea } from "@mantine/core";
 import { MainLayout } from "../../theme/layouts/main.layout";
 import { FormContainer } from "../../ui/form-container/form-container.component";
 import { AvatarInput } from "./avatar-input/avatar-input.component";
@@ -25,24 +25,11 @@ export const ProfilePage = () => {
         >
           <Textarea minRows={4} size="md" />
         </InputWrapper>
-      </FormContainer>
-      <FormContainer
-        title="Account"
-        description="Setting related to your account"
-      >
-        <InputWrapper
-          label="Change password"
-          description="Provide new password"
-        >
-          <Input size="md" />
+        <InputWrapper>
+          <Button fullWidth size="md">
+            Save Profile Settings
+          </Button>
         </InputWrapper>
-        <InputWrapper
-          label="E-mail notifications"
-          description="Here you can enable/disable e-mail notifications"
-        >
-          <Checkbox label="Enable e-mail notifications" size="md" />
-        </InputWrapper>
-        <Button>Save</Button>
       </FormContainer>
     </MainLayout>
   );

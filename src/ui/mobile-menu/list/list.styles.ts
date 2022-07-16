@@ -16,4 +16,23 @@ export const useStyles = createStyles((theme) => ({
   item: {
     width: "100%",
   },
+  accordion: {
+    width: "100%",
+
+    "& button": {
+      margin: 0,
+      padding: `0 ${theme.spacing.lg}px`,
+    },
+  },
+  accordionLabel: {
+    padding: `${theme.spacing.lg}px 0`,
+    fontWeight: 600,
+    color: theme.colors.dark[8],
+    fontSize: theme.fontSizes.lg,
+  },
+  accordionItem: {
+    "& li:last-of-type div": {
+      border: "none",
+    },
+  },
 }));
