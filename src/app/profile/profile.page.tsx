@@ -1,7 +1,7 @@
 import { Button, Checkbox, Input, InputWrapper, Textarea } from "@mantine/core";
-import { Dropzone } from "@mantine/dropzone";
 import { MainLayout } from "../../theme/layouts/main.layout";
 import { FormContainer } from "../../ui/form-container/form-container.component";
+import { AvatarInput } from "./avatar-input/avatar-input.component";
 
 export const ProfilePage = () => {
   return (
@@ -11,7 +11,7 @@ export const ProfilePage = () => {
         description="Setting related to your profile"
       >
         <InputWrapper label="Avatar" description="It is good to have one">
-          <Dropzone onDrop={() => {}}>{() => <div>Dropzone</div>}</Dropzone>
+          <AvatarInput avatarUrl="qwe" />
         </InputWrapper>
         <InputWrapper
           label="Display name"
