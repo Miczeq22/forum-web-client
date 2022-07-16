@@ -2,15 +2,16 @@ import { createStyles } from "@mantine/core";
 
 export const useStyles = createStyles((theme) => ({
   avatarContainer: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    // display: "flex",
+    // justifyContent: "center",
+    // alignItems: "center",
     position: "relative",
+    paddingTop: theme.spacing.md,
   },
   deleteButton: {
     position: "absolute",
-    top: -10,
-    right: "22%",
+    top: 5,
+    left: "45%",
     backgroundColor: theme.colors.red[6],
     borderRadius: "50%",
     width: 25,
