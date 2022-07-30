@@ -1,10 +1,12 @@
 import { Anchor, Badge, Button, Text, Title } from "@mantine/core";
 import { FaArrowDown, FaArrowUp, FaComment } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { PostDTO } from "../post-list/hooks/use-posts.hook";
 import { useStyles } from "./text-post.styles";
 
-export const TextPost = () => {
+export const TextPost = ({ id, title, content, category, author }: PostDTO) => {
   const { classes } = useStyles();
+  const singlePostLink = `/post/${id}`;
 
   return (
     <article className={classes.post}>
@@ -12,30 +14,23 @@ export const TextPost = () => {
         <nav className={classes.nav}>
           <Anchor to="/#category" component={Link}>
             <Badge variant="outline" size="sm">
-              Programming
+              {category.name}
             </Badge>
           </Anchor>
           <Anchor to="/#user" color="dimmed" component={Link}>
             <Text className={classes.postedBy}>
-              Posted by <span className={classes.author}>johnny21</span>
+              Posted by <span className={classes.author}>{author.id}</span>
             </Text>
           </Anchor>
         </nav>
-        <Anchor component={Link} to="/post" underline={false}>
+        <Anchor component={Link} to={singlePostLink} underline={false}>
           <Title order={3} className={classes.title}>
-            What is DDD?
+            {title}
           </Title>
         </Anchor>
       </header>
-      <Anchor component={Link} to="/post" underline={false}>
-        <main className={classes.content}>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
-          distinctio facilis eveniet dolorem. Voluptatem quae autem, nobis
-          quibusdam ducimus earum molestiae commodi nemo maxime dolorem quos
-          quasi adipisci dolore veniam molestias ipsam alias, sint impedit
-          mollitia beatae? Unde quam consectetur, amet eos labore recusandae
-          repudiandae porro facere nemo autem nam.
-        </main>
+      <Anchor component={Link} to={singlePostLink} underline={false}>
+        <main className={classes.content}>{content}</main>
         <footer className={classes.footer}>
           <div className={classes.leftButtons}>
             <Button variant="subtle" size="xs">

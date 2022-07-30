@@ -11,7 +11,7 @@ export const ProfilePage = () => {
         description="Setting related to your profile"
       >
         <InputWrapper label="Avatar" description="It is good to have one">
-          <AvatarInput avatarUrl="qwe" />
+          <AvatarInput />
         </InputWrapper>
         <InputWrapper
           label="Display name"

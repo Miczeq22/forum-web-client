@@ -17,12 +17,13 @@ export const List = () => {
               label: classes.accordionLabel,
             }}
             iconPosition="right"
+            key={item.name}
           >
             <Accordion.Item label={item.name} className={classes.accordionItem}>
               {item.items.map((subItem) => (
                 <li
                   className={classes.item}
-                  key={item.name}
+                  key={subItem.name}
                   onClick={onItemClick}
                 >
                   <Item {...subItem} />

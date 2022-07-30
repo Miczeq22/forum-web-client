@@ -1,14 +1,16 @@
 import { TextPost } from "../text-post/text-post.component";
+import { usePosts } from "./hooks/use-posts.hook";
 import { useStyles } from "./post-list.styles";
 
 export const PostList = () => {
+  const { posts } = usePosts();
   const { classes } = useStyles();
 
   return (
     <ul className={classes.list}>
-      {new Array(5).fill(0).map((_, index) => (
-        <li className={classes.listItem} key={`post-item-${index}`}>
-          <TextPost />
+      {posts.map((post) => (
+        <li className={classes.listItem} key={post.id}>
+          <TextPost {...post} />
         </li>
       ))}
     </ul>

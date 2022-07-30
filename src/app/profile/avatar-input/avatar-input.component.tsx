@@ -46,6 +46,7 @@ export const AvatarInput = ({ avatarUrl }: Props) => {
     <Dropzone
       onDrop={handleFileChange}
       accept={[MIME_TYPES.png, MIME_TYPES.jpeg]}
+      multiple={false}
     >
       {() => {
         return (

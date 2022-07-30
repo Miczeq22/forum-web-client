@@ -7,13 +7,7 @@ interface Props {
 }
 
 const mobileStyles = {
-  gridTemplateColumns: "1fr",
-  gridTemplateAreas: `
-    "nav"
-    "content"
-  `,
-  gap: "0",
-  gridTemplateRows: "1fr",
+  display: "block",
 };
 
 const useStyles = createStyles({
