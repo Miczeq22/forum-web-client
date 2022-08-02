@@ -1,13 +1,29 @@
-import { Button, Checkbox, Input, InputWrapper } from "@mantine/core";
-import { useUser } from "../../../hooks/use-user/use-user.hook";
-import { login } from "../../../providers/user/user.actions";
+import {
+  Button,
+  Checkbox,
+  Input,
+  InputWrapper,
+  PasswordInput,
+} from "@mantine/core";
 import { FormContainer } from "../../../ui/form-container/form-container.component";
+import { RegistrationPayload } from "../hooks/use-registration.hook";
+import { ChangeEvent } from "react";
+import { useForm } from "../hooks/use-form.hook";
 
-export const RegisterForm = () => {
-  const { dispatch } = useUser();
+interface Props {
+  onSubmit(payload: RegistrationPayload): Promise<void>;
+  isLoading: boolean;
+}
 
-  const handleButtonClick = () => {
-    dispatch(login());
+export const RegisterForm = ({ onSubmit, isLoading }: Props) => {
+  const { formik } = useForm({
+    onSubmit,
+  });
+
+  const handleTermsAndAgreementsChange = (
+    event: ChangeEvent<HTMLInputElement>
+  ) => {
+    formik.setFieldValue("acceptTermsAndConditions", event.target.checked);
   };
 
   return (
@@ -15,54 +31,81 @@ export const RegisterForm = () => {
       title="Sign Up"
       description="Sign up to share your thoughts in easy way!"
     >
-      <InputWrapper
-        label="E-mail address"
-        description="Please provide real e-mail address, we will send you email confirmeation"
-        required
-      >
-        <Input
-          type="email"
-          placeholder="Provide your e-mail address"
-          size="md"
-        />
-      </InputWrapper>
-      <InputWrapper
-        label="Username"
-        description="With username you can login to the app"
-        required
-      >
-        <Input
-          type="email"
-          placeholder="Provide your unique username"
-          size="md"
-        />
-      </InputWrapper>
-      <InputWrapper
-        label="Password"
-        description="Provide strong password"
-        required
-      >
-        <Input
-          type="email"
-          placeholder="Provide your strong password"
-          size="md"
-        />
-      </InputWrapper>
-      <InputWrapper
-        label="Repeat password"
-        description="To make sure you provided correct password, please write it once again"
-        required
-      >
-        <Input type="email" placeholder="Repeat your password" size="md" />
-      </InputWrapper>
-      <InputWrapper>
-        <Checkbox label="Accept Terms & Agreements" size="md" />
-      </InputWrapper>
-      <InputWrapper>
-        <Button fullWidth size="md" onClick={handleButtonClick}>
-          Sign Up
-        </Button>
-      </InputWrapper>
+      <form onSubmit={formik.handleSubmit}>
+        <InputWrapper
+          label="E-mail address"
+          description="Please provide real e-mail address, we will send you email confirmeation"
+          required
+          error={formik.values.email && formik.errors.email}
+        >
+          <Input
+            type="email"
+            placeholder="Provide your e-mail address"
+            size="md"
+            {...formik.getFieldProps("email")}
+          />
+        </InputWrapper>
+        <InputWrapper
+          label="Username"
+          description="With username you can login to the app"
+          required
+          error={formik.values.username && formik.errors.username}
+        >
+          <Input
+            placeholder="Provide your unique username"
+            size="md"
+            {...formik.getFieldProps("username")}
+          />
+        </InputWrapper>
+        <InputWrapper
+          label="Password"
+          description="Provide strong password"
+          required
+          error={formik.values.password && formik.errors.password}
+        >
+          <PasswordInput
+            placeholder="Provide your strong password"
+            size="md"
+            {...formik.getFieldProps("password")}
+          />
+        </InputWrapper>
+        <InputWrapper
+          label="Repeat password"
+          description="To make sure you provided correct password, please write it once again"
+          required
+          error={formik.values.repeatPassword && formik.errors.repeatPassword}
+        >
+          <PasswordInput
+            placeholder="Repeat your password"
+            size="md"
+            {...formik.getFieldProps("repeatPassword")}
+          />
+        </InputWrapper>
+        <InputWrapper
+          error={
+            formik.values.acceptTermsAndConditions !== undefined &&
+            formik.errors.acceptTermsAndConditions
+          }
+        >
+          <Checkbox
+            label="Accept Terms & Agreements"
+            size="md"
+            {...formik.getFieldProps("acceptTermsAndConditions")}
+            onChange={handleTermsAndAgreementsChange}
+          />
+        </InputWrapper>
+        <InputWrapper>
+          <Button
+            fullWidth
+            size="md"
+            type="submit"
+            disabled={!formik.isValid}
+            loading={isLoading}
+          >
+            Sign Up
+          </Button>
+        </InputWrapper>
+      </form>
     </FormContainer>
   );
 };
