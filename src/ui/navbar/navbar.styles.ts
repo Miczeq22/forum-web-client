@@ -12,6 +12,6 @@ export const useStyles = createStyles((theme) => ({
     position: "sticky",
     top: 0,
     backgroundColor: "white",
-    zIndex: 999,
+    zIndex: 9,
   },
 }));

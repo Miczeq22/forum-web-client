@@ -14,11 +14,6 @@ const useStyles = createStyles({
   layout: {
     maxWidth: 1200,
     margin: "0 auto",
-    display: "grid",
-    gridTemplateColumns: "0.7fr 0.9fr 1.5fr 0.9fr",
-    gridTemplateRows: "1fr 15fr",
-    gridTemplateAreas: `"nav nav nav nav" "content"`,
-    gap: "0.75rem 0.4rem",
   },
 });
 

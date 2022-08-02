@@ -4,6 +4,7 @@ import { useMobileMenu } from "../../hooks/use-mobile-menu/use-mobile-menu.hook"
 import { toggleMenu } from "../../providers/mobile-menu/mobile-menu.actions";
 import { Logo } from "../logo/logo";
 import { useStyles } from "./navbar.styles";
+import { NavigationList } from "./navigation-list/navigation-list.component";
 
 export const Navbar = () => {
   const {
@@ -19,6 +20,9 @@ export const Navbar = () => {
       <Logo />
       {width <= theme.breakpoints.sm && (
         <Burger opened={isMenuOpen} onClick={() => dispatch(toggleMenu())} />
+      )}
+      {width > theme.breakpoints.sm && (
+        <NavigationList />
       )}
     </nav>
   );
