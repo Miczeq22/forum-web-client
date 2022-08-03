@@ -5,44 +5,64 @@ import {
   InputWrapper,
   PasswordInput,
 } from "@mantine/core";
-import { useUser } from "../../../hooks/use-user/use-user.hook";
-import { login } from "../../../providers/user/user.actions";
 import { FormContainer } from "../../../ui/form-container/form-container.component";
+import { useForm } from "../hooks/use-form.hook";
+import { LoginPayload } from "../hooks/use-login.hook";
 
-export const LoginForm = () => {
-  const { dispatch } = useUser();
+interface Props {
+  onSubmit(payload: LoginPayload): Promise<void>;
+  isLoading: boolean;
+}
 
-  const handleButtonClick = () => {
-    dispatch(login());
-  };
+export const LoginForm = ({ onSubmit, isLoading }: Props) => {
+  const { formik } = useForm({ onSubmit });
 
   return (
     <FormContainer
       title="Sign In"
       description="Sign in and start sharing your thoughts!"
     >
+      <form onSubmit={formik.handleSubmit}>
       <InputWrapper
         label="Username"
         description="You've selected your username during registration"
         required
+        error={formik.values.email && formik.errors.email}
       >
-        <Input placeholder="Provide your username" size="md" />
+        <Input
+          type="email"
+          placeholder="Provide your username"
+          size="md"
+          {...formik.getFieldProps("email")}
+        />
       </InputWrapper>
       <InputWrapper
         label="Password"
         description="If you don't remember your password you can always reset it"
         required
+        error={formik.values.password && formik.errors.password}
       >
-        <PasswordInput placeholder="Provide your password" size="md" />
+        <PasswordInput
+          placeholder="Provide your password"
+          size="md"
+          {...formik.getFieldProps("password")}
+        />
       </InputWrapper>
       <InputWrapper>
         <Checkbox label="Remember me?" size="md" />
       </InputWrapper>
       <InputWrapper>
-        <Button size="md" fullWidth onClick={handleButtonClick}>
+        <Button
+          size="md"
+          fullWidth
+          type="submit"
+          disabled={!formik.isValid}
+          loading={isLoading}
+        >
           Sign In
         </Button>
       </InputWrapper>
+      </form>
     </FormContainer>
   );
 };
