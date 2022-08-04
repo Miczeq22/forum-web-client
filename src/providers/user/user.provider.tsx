@@ -1,4 +1,5 @@
 import { createContext, Dispatch, ReactNode, useReducer } from "react";
+import { authStorage } from "../auth/auth.storage";
 import { UserAction, userReducer } from "./user.reducer";
 
 export interface UserState {
@@ -23,7 +24,11 @@ interface Props {
 }
 
 export const UserProvider = ({ children }: Props) => {
-  const [state, dispatch] = useReducer(userReducer, defaultUserState);
+  const [state, dispatch] = useReducer(userReducer, {
+    isLoggedIn: Boolean(
+      authStorage.getAccessToken() && authStorage.getRefreshToken()
+    ),
+  });
 
   return (
     <UserContext.Provider

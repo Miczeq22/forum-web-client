@@ -5,8 +5,7 @@ import { useStyles } from "./login.styles";
 
 export const LoginPage = () => {
   const { classes } = useStyles();
-  const { login, loading } = useLogin()
-
+  const { login, loading } = useLogin();
 
   return (
     <MainLayout>
