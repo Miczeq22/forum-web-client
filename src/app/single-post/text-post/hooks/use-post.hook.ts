@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import useFetch from "use-http";
-import { PostDTO } from "../../../home/post-list/hooks/use-posts.hook";
+import { PostDTO } from "../../../../domain/post.dto";
 
 export const usePost = (postId: string) => {
   const [post, setPost] = useState<PostDTO | null>(null);

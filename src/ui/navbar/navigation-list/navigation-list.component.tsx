@@ -13,25 +13,34 @@ export const NavigationList = () => {
       {menu.map((item) =>
         item.items ? (
           <li key={item.name} className={classes.item}>
-          <Menu
-            trigger="hover"
-            control={
-              <UnstyledButton className={classes.menuButton}>
-                <Text className={cx(classes.menuButtonText, classes.itemText)}>{item.name}</Text> <FiChevronDown />
-              </UnstyledButton>
-            }
-            classNames={{
-              body: classes.dropdown,
-            }}
-          >
-            {item.items.map((subItem) => (
-              <UnstyledButton component={Link} to={subItem.href!}>
-                <Menu.Item key={subItem.name} >
-                  <Text className={classes.itemText}>{subItem.name}</Text>
-                </Menu.Item>
-              </UnstyledButton>
-            ))}
-          </Menu>
+            <Menu
+              trigger="hover"
+              control={
+                <UnstyledButton className={classes.menuButton}>
+                  <Text
+                    className={cx(classes.menuButtonText, classes.itemText)}
+                  >
+                    {item.name}
+                  </Text>{" "}
+                  <FiChevronDown />
+                </UnstyledButton>
+              }
+              classNames={{
+                body: classes.dropdown,
+              }}
+            >
+              {item.items.map((subItem) => (
+                <UnstyledButton
+                  component={Link}
+                  to={subItem.href!}
+                  key={subItem.name}
+                >
+                  <Menu.Item key={subItem.name}>
+                    <Text className={classes.itemText}>{subItem.name}</Text>
+                  </Menu.Item>
+                </UnstyledButton>
+              ))}
+            </Menu>
           </li>
         ) : (
           <li key={item.name} className={classes.item}>

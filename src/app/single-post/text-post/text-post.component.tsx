@@ -1,7 +1,7 @@
 import { Anchor, Badge, Button, Text, Title } from "@mantine/core";
 import { FaArrowDown, FaArrowUp, FaComment } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { PostDTO } from "../../home/post-list/hooks/use-posts.hook";
+import { PostDTO } from "../../../domain/post.dto";
 import { useStyles } from "./text-post.styles";
 
 export const TextPost = ({ category, author, content, title }: PostDTO) => {
