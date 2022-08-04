@@ -3,7 +3,7 @@ import { usePosts } from "./hooks/use-posts.hook";
 import { useStyles } from "./post-list.styles";
 
 export const PostList = () => {
-  const { posts } = usePosts();
+  const { posts } = usePosts({});
   const { classes } = useStyles();
 
   return (

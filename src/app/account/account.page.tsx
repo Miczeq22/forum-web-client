@@ -1,6 +1,6 @@
 import { Button, Checkbox, Input, InputWrapper } from "@mantine/core";
-import { MainLayout } from "../../../theme/layouts/main.layout";
-import { FormContainer } from "../../../ui/form-container/form-container.component";
+import { MainLayout } from "../../theme/layouts/main.layout";
+import { FormContainer } from "../../ui/form-container/form-container.component";
 
 export const AccountPage = () => {
   return (

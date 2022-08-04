@@ -2,7 +2,7 @@ import { useMantineTheme } from "@mantine/core";
 import { useViewportSize } from "@mantine/hooks";
 import { Fragment } from "react";
 import { Route, Routes } from "react-router-dom";
-import { AccountPage } from "./app/home/account/account.page";
+import { AccountPage } from "./app/account/account.page";
 import { HomePage } from "./app/home/home.page";
 import { LoginPage } from "./app/login/login.page";
 import { LogoutPage } from "./app/logout/logout.page";

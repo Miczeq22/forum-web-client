@@ -9,28 +9,28 @@ export const TextPost = ({ id, title, content, category, author }: PostDTO) => {
   const singlePostLink = `/post/${id}`;
 
   return (
-    <Anchor component={Link} to={singlePostLink} underline={false}>
-      <article className={classes.post}>
-        <header>
-          <nav className={classes.nav}>
-            <Anchor to="/#category" component={Link}>
-              <Badge variant="outline" size="sm">
-                {category.name}
-              </Badge>
-            </Anchor>
-            <Anchor to="/#user" color="dimmed" component={Link}>
-              <Text className={classes.postedBy}>
-                Posted by <span className={classes.author}>{author.id}</span>
-              </Text>
-            </Anchor>
-          </nav>
-          <Anchor component={Link} to={singlePostLink} underline={false}>
-            <Title order={3} className={classes.title}>
-              {title}
-            </Title>
+    <article className={classes.post}>
+      <header>
+        <nav className={classes.nav}>
+          <Anchor to="/#category" component={Link}>
+            <Badge variant="outline" size="sm">
+              {category.name}
+            </Badge>
           </Anchor>
-        </header>
+          <Anchor to="/#user" color="dimmed" component={Link}>
+            <Text className={classes.postedBy}>
+              Posted by <span className={classes.author}>{author.id}</span>
+            </Text>
+          </Anchor>
+        </nav>
+        <Anchor component={Link} to={singlePostLink} underline={false}>
+          <Title order={3} className={classes.title}>
+            {title}
+          </Title>
+        </Anchor>
+      </header>
 
+      <Anchor component={Link} to={singlePostLink} underline={false}>
         <main className={classes.content}>{content}</main>
         <footer className={classes.footer}>
           <div className={classes.leftButtons}>
@@ -49,7 +49,7 @@ export const TextPost = ({ id, title, content, category, author }: PostDTO) => {
             </Button>
           </div>
         </footer>
-      </article>
-    </Anchor>
+      </Anchor>
+    </article>
   );
 };
