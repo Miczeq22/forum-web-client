@@ -16,7 +16,6 @@ export const Comment = () => {
     if (!isReplyInputOpen) {
       replyRef.current?.scrollIntoView({
         behavior: "smooth",
-        block: "center",
       });
     }
     setIsReplyInputOpen(!isReplyInputOpen);
