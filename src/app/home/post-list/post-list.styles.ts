@@ -13,4 +13,11 @@ export const useStyles = createStyles((theme) => ({
   listItem: {
     marginTop: theme.spacing.md,
   },
+  loaderContainer: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: theme.spacing.md,
+  },
 }));

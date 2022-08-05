@@ -72,7 +72,7 @@ export const useInfiniteScroll = <Item>({ url, itemsPerPage = 10 }: Props) => {
       const setPaginateFlag =
         scrollHeight - Math.floor(scrollTop) === clientHeight;
 
-      if (setPaginateFlag) {
+      if (!loading && setPaginateFlag) {
         loadMore();
       }
     };
@@ -82,7 +82,7 @@ export const useInfiniteScroll = <Item>({ url, itemsPerPage = 10 }: Props) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [loadMore]);
+  }, [loadMore, loading]);
 
   return {
     loading,
